@@ -2,7 +2,7 @@ import requests
 import re
 
 # 🔑 Your OpenWeather API key
-OPENWEATHER_API_KEY = "36dcef5cdb333bfc594d0721d83154e0"
+OPENWEATHER_API_KEY = "Your_api_here"
 
 # 🌆 Fallback city if no city is found in query
 DEFAULT_CITY = "Lucknow"
