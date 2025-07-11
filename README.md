@@ -13,6 +13,55 @@
 
 ---
 
+⚙️ How It Works
+Here's a simplified breakdown of how Klassy responds to voice queries:
+
+Wake Word Detection
+
+Listens continuously for the wake word: "Klassy"
+
+Starts active listening once detected
+
+Speech-to-Text (STT)
+
+Captures your spoken query using a microphone
+
+Converts audio to text using the offline Vosk model
+
+Intent Handling
+
+Determines whether the query is about:
+
+Time or weather (handled locally)
+
+General/school queries (handled via Groq's LLM)
+
+Exit commands like “bye” or “shutdown”
+
+LLM or Local Processing
+
+If weather/time: responds locally with city-aware logic
+
+Else: sends the query to Groq's LLaMA model for a smart response
+
+Memory & Context
+
+Recent queries are stored temporarily in memory (JSON)
+
+Helps make answers more contextual and conversational
+
+Text-to-Speech (TTS)
+
+Converts the bot’s text response back into speech
+
+Uses pyttsx3 to speak out the answer naturally
+
+Ready for Next Query
+
+Returns to listening mode after answering
+
+---
+
 ## ✨ Features
 
 - ✅ **Wake Word Activation** – Start conversation with "Klassy"
