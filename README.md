@@ -1,6 +1,4 @@
-# Trial_AI_Assistant# 
-
-🧠 Klassy – An AI-Powered School Receptionist Bot
+# 🧠 Klassy – An AI-Powered School Receptionist Bot
 
 **Klassy** is an intelligent bilingual voice assistant designed specifically for schools in India. Built with offline and online capabilities, it responds to voice commands like "What's the weather?" or "Tell me the time", and can answer general knowledge or school-related queries using Groq's LLM.
 
@@ -37,9 +35,6 @@ pip install -r requirements.txt
 Python version: 3.10+
 
 📁 Project Structure
-graphql
-Copy
-Edit
 School_assistant_bot/
 │
 ├── main.py                    # Main launcher script
@@ -67,9 +62,6 @@ You can set them via a .env file (if using python-dotenv) or through your system
 🚀 Running the Assistant
 Once dependencies and API keys are set, run:
 
-bash
-Copy
-Edit
 python main.py
 Then say:
 "Klassy, what’s the weather in Lucknow?"
@@ -89,9 +81,11 @@ GUI-based dashboard for teachers/staff
 Integration with school timetable / announcements
 
 📍 Author
-Varnan – AI Intern, 2025
+Abheesht Mishra – AI Intern, 2025
 
-Developed for Delhi Public School as part of a voice interface research internship.
+Developed for Delhi Public School as part of a AI ENGINEER internship.
 
 📄 License
-MIT – Feel free to use, modify, and contribute!
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+
