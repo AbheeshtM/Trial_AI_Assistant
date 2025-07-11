@@ -1,0 +1,25 @@
+# Ignore Vosk model and any large files
+model/
+*.zip
+*.tar.gz
+
+# Ignore Python cache and logs
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Ignore chat logs
+chat_history.json
+
+# Ignore environment variables and virtual environments
+.env
+venv*/
+ENV*/
+
+# Ignore rag engine if not in use
+rag_engine.py
+
+# OS-specific
+.DS_Store
+Thumbs.db
