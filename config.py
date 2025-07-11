@@ -2,7 +2,7 @@
 import os
 
 # 🔐 Groq API Key (fallback provided, but env var recommended)
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "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")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "Your_api_key_here")
 
 # ✅ Use a supported, powerful production model
 MODEL_NAME = "llama-3.3-70b-versatile"  # Fast, multilingual, reliable
