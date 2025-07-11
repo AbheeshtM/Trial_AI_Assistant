@@ -1,6 +1,6 @@
 # 🧠 Klassy – An AI-Powered School Receptionist Bot
 
-**Klassy** is an intelligent bilingual voice assistant designed specifically for schools in India. Built with offline and online capabilities, it responds to voice commands like "What's the weather?" or "Tell me the time", and can answer general knowledge or school-related queries using Groq's LLM.
+**Klassy** is an intelligent voice assistant designed specifically for schools in India. Built with offline and online capabilities, it responds to voice commands like "What's the weather?" or "Tell me the time", and can answer general knowledge or school-related queries using Groq's LLM.
 
 ---
 
