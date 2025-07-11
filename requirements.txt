@@ -1,0 +1,9 @@
+vosk
+pyaudio
+pyttsx3
+openai
+langchain
+chromadb
+tiktoken
+python-docx
+pdfminer.six

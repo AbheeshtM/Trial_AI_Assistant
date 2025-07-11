@@ -1,0 +1,56 @@
+from langchain.document_loaders import PyPDFLoader, Docx2txtLoader, CSVLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores import Chroma
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.chains import RetrievalQA
+from langchain_groq import ChatGroq
+import os
+from config import GROQ_API_KEY, MODEL_NAME
+
+# Load files from /data
+def load_documents():
+    docs = []
+    for file in os.listdir("data"):
+        path = os.path.join("data", file)
+        if file.endswith(".pdf"):
+            loader = PyPDFLoader(path)
+        elif file.endswith(".docx"):
+            loader = Docx2txtLoader(path)
+        elif file.endswith(".csv"):
+            loader = CSVLoader(path)
+        else:
+            continue
+        docs.extend(loader.load())
+    return docs
+
+# Split into chunks
+def split_documents(docs):
+    splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+    return splitter.split_documents(docs)
+
+# Build vector database using HuggingFace embeddings
+def create_vectorstore(chunks):
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    vectordb = Chroma.from_documents(chunks, embeddings, persist_directory="db")
+    vectordb.persist()
+    return vectordb
+
+# Load docs & initialize retriever
+docs = load_documents()
+chunks = split_documents(docs)
+vectordb = create_vectorstore(chunks)
+retriever = vectordb.as_retriever()
+
+# Initialize Groq model
+llm = ChatGroq(
+    api_key=GROQ_API_KEY,
+    model=MODEL_NAME,
+    temperature=0.2,
+)
+
+# Retrieval-based QA
+qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
+
+# Final callable function
+def ask_question(query):
+    return qa_chain.run(query)
